@@ -1,0 +1,25 @@
+{
+  "name": "1stdibsChallenge",
+  "version": "0.0.0",
+  "homepage": "https://github.com/FireAlarm/OurBackend",
+  "authors": [
+    "Alexander <alexandermichaelmiranda@gmail.com>"
+  ],
+  "description": "Chanllenge for 1st Dibs",
+  "keywords": [
+    "challenge",
+    "backbone",
+    "front-end"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "1stdibsChallenge",
+  "version": "0.0.0",
+  "description": "1st Dibs coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:amiranda222/1stdibschallenge.git"
+  },
+  "author": "Alex Miranda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.4.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0"
+  }
+}
