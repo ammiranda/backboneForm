@@ -1,0 +1,43 @@
+<form role="form">
+	<div class="form-group">
+		<label for="itemTitle">Title</label>
+		<input class="form-control">
+	</div>
+	<div class="form-group">
+		<label for="itemDescription">Description</label>
+		<textarea class="form-control" rows="10"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="internalNotes">Internal Notes</label>
+		<textarea class="form-control" rows="3"></textarea>
+	</div>
+	<div class="form-group">
+		<label for="materials">Materials</label>
+		<select class="form-control">
+			{{}}
+		</select>
+	</div>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" value="">
+				<strong>Check this box</strong> if the listing contains or may contain restricted materials
+		</label>
+	</div>
+	<div class="form-group">
+		<label for="measurements">Measurements</label>
+		<label class="checkbox-inline">
+			Measurements are in: {{}}
+		</label>
+		<label class="checkbox-inline">
+			Measured item is: {{}}
+		</label>
+
+		<!-- Write the measurements input fields -->
+	
+	</div>
+	<div class="form-group">
+		<label for="condition">Condition (Select one)</label>
+		{{}}
+	</div>
+	<button type="submit" class="btn btn-primary">Save</button>
+</form>
