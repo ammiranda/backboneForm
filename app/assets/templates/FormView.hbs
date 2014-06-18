@@ -1,15 +1,19 @@
 <form role="form">
 	<div class="form-group">
 		<label for="itemTitle">Title</label>
-		<input class="form-control">
+		<input class="form-control" value="{{result.item.title}}">
 	</div>
 	<div class="form-group">
 		<label for="itemDescription">Description</label>
-		<textarea class="form-control" rows="10"></textarea>
+		<textarea class="form-control" rows="10">
+			{{result.item.description}}
+		</textarea>
 	</div>
 	<div class="form-group">
 		<label for="internalNotes">Internal Notes</label>
-		<textarea class="form-control" rows="3"></textarea>
+		<textarea class="form-control" rows="3">
+			{{result.item.dealerInternalNotes}}
+		</textarea>
 	</div>
 	<div class="form-group">
 		<label for="materials">Materials</label>
