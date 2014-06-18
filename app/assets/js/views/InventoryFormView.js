@@ -36,10 +36,18 @@ module.exports = Backbone.View.extend({
 		{
 			result.item = {}
 		}
-		
+
 		result.item.title = form.find('#title').val();
 		result.item.description = form.find('#description').val();
 		result.item.dealerInternalNotes = form.find('#internalNotes').val();
+
+		if (result.item.material === null || result.item.material === undefined)
+		{
+			result.item.material = {}
+		}
+
+		result.item.material.description = form.find('#material option:selected').val();
+
 		this.model.set('result', result);
 		
 		this.model.save();

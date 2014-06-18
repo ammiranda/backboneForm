@@ -14,7 +14,7 @@ app.get('/enums.json', function(req, res){
 	res.sendfile('./enums.json');
 });
 
-app.post('/', function(req, res){
+app.post('/item.json', function(req, res){
 	console.log(req.body);	
 });
 
