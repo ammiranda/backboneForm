@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -10,7 +12,7 @@ app.get('/item.json', function(req, res){
 	res.sendfile('./item.json');
 });
 
-app.post('/item.json', function(req, res){
+app.post('/item.json', function(req){
 	console.log(req.body);	
 });
 
@@ -19,5 +21,5 @@ app.get('/enums.json', function(req, res){
 });
 
 app.listen(port, function(){
-	console.log("Listening on port " + port);
+	console.log('Listening on port ' + port);
 });

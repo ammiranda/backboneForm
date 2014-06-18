@@ -8,7 +8,7 @@ var InventoryFormView = require('../views/InventoryFormView');
 module.exports = Backbone.Router.extend({
 	
 	routes: {
-		"": "init"
+		'': 'init'
 	},
 
 	init: function() {

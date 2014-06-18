@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function(grunt){
 
@@ -58,7 +58,7 @@ module.exports = function(grunt){
 		uglify: {
 			js: {
 				files: {
-					'build/browser.min.js': 'build/browser.js'
+					'dist/browser.js': 'dist/browser.js'
 				}
 			}
 		},
@@ -104,7 +104,6 @@ module.exports = function(grunt){
 
 	grunt.registerTask('default', ['express:dev', 'watch:express']);
 	grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev']);
-	grunt.registerTask('build:prod', ['clean:prod', 'copy:prod', 'browserify:prod', 'uglify']);
-	grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'copy:prod', 'jshint:all']);
+	grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'copy:prod', 'jshint:all', 'uglify']);
 	grunt.registerTask('test', ['jshint']);
 };
