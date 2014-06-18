@@ -10,12 +10,12 @@ app.get('/item.json', function(req, res){
 	res.sendfile('./item.json');
 });
 
-app.get('/enums.json', function(req, res){
-	res.sendfile('./enums.json');
-});
-
 app.post('/item.json', function(req, res){
 	console.log(req.body);	
+});
+
+app.get('/enums.json', function(req, res){
+	res.sendfile('./enums.json');
 });
 
 app.listen(port, function(){
