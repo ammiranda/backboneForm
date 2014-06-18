@@ -11,11 +11,14 @@ module.exports = Backbone.View.extend({
 	el: '.col-lg-4',
 
 	events: {
-		'click #inventorySubmit': 'saveItem' 
+		'click #inventorySubmit': 'saveItem',
+
 	},
 
 	initialize: function() {
+		var that = this;
 		this.render();
+		this.model.on('change', this.render, this);
 	},
 	
 	render: function() {

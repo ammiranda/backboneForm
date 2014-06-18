@@ -14,9 +14,9 @@ module.exports = Backbone.Router.extend({
 	init: function() {
 		this.inventoryItem = new InventoryItem();
 		this.inventoryFormView = new InventoryFormView({model: this.inventoryItem});
+		var that = this;
 		this.inventoryItem.fetch();
 		$('.formcontainer').html(this.inventoryFormView.el);
 	}
-
 });
 		
