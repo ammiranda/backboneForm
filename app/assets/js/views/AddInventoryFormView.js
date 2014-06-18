@@ -1,13 +1,13 @@
+'use strict';
+
 var Backbone = require('backbone');
 var $ = require('jquery');
-var _ = require('lodash');
 var template = require('../templates/FormView.hbs');
 
 module.exports = Backbone.View.extend({
 
 	tagname: 'div',
 	className: 'inventoryform',
-	template: template,
 
 	events: {
 		'click #inventorySubmit': 'saveItem' 
@@ -18,7 +18,8 @@ module.exports = Backbone.View.extend({
 	},
 	
 	render: function() {
-		this.$el.html(this.template(this.model.attributes));
+		var inventoryAttrs = this.model.toJSON();
+		this.$el.html(template(inventoryAttrs));
 		return this;
 	},	
 

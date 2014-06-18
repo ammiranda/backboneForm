@@ -4,11 +4,6 @@ var _				 = require('lodash');
 var InventoryItem = require('../models/InventoryItem');
 
 module.exports = Backbone.Collection.extend({
-
-	initialize: function() {
-		this.url = 'http://localhost:3000/item.json'
-	},
-	
-	model: InventoryItem
-
+	model: InventoryItem,
+	url: 'http://localhost:3000/item.json'
 });
