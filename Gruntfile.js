@@ -103,7 +103,8 @@ module.exports = function(grunt){
 	//Register Grunt Tasks
 
 	grunt.registerTask('default', ['express:dev', 'watch:express']);
-	grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev', 'uglify']);
+	grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev']);
+	grunt.registerTask('build:prod', ['clean:prod', 'copy:prod', 'browserify:prod', 'uglify']);
 	grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'copy:prod', 'jshint:all']);
 	grunt.registerTask('test', ['jshint']);
 };

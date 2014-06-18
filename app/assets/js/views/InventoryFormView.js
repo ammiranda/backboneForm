@@ -7,7 +7,8 @@ var template = require('../../templates/FormView.hbs');
 module.exports = Backbone.View.extend({
 
 	tagname: 'div',
-	className: 'inventoryform',
+	className: 'inventoryForm',
+	el: '.col-lg-4',
 
 	events: {
 		'click #inventorySubmit': 'saveItem' 

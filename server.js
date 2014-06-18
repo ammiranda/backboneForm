@@ -13,7 +13,7 @@ app.get('/enums.json', function(req, res){
 });
 
 app.post('/', function(req, res){
-	console.log(res.toJSON());	
+	console.log(res);	
 });
 
 app.listen(port, function(){
