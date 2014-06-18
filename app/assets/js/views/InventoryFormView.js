@@ -24,7 +24,21 @@ module.exports = Backbone.View.extend({
 		return this;
 	},	
 
-	saveItem: function() {
+	saveItem: function(event) {
+		event.preventDefault();
+		var form = $(this.el).find('form');
+
+		this.model.set({
+			"result": {
+				"item": {
+					"title": form.find('#title').val(),
+					"description": form.find('#description').val(),
+					"dealerInternalNotes": form.find('#internalNotes').val()
+				}
+			}
+		});
+
+		this.model.save();
 		console.log(this.model.toJSON());
 	}
 

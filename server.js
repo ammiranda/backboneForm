@@ -1,8 +1,10 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/build'));
+app.use(bodyParser.json());
 
 app.get('/item.json', function(req, res){
 	res.sendfile('./item.json');
@@ -13,7 +15,7 @@ app.get('/enums.json', function(req, res){
 });
 
 app.post('/', function(req, res){
-	console.log(res);	
+	console.log(req.body);	
 });
 
 app.listen(port, function(){
