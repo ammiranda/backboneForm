@@ -30,18 +30,19 @@ module.exports = Backbone.View.extend({
 	saveItem: function(event) {
 		event.preventDefault();
 		var form = $(this.el).find('form');
+		var result = this.model.get('result');
 
+		if (result.item === null || result.item === undefined)
+		{
+			result.item = {}
+		}
 		
-		var obj = {"result": {
-						"item": {
-							"title": form.find('#title').val(),
-							"description": form.find('#description').val(),
-							"dealerInternalNotes": form.find('#internalNotes').val()
-						}
-					}
-				};
-
-		this.model.save(obj);
+		result.item.title = form.find('#title').val();
+		result.item.description = form.find('#description').val();
+		result.item.dealerInternalNotes = form.find('#internalNotes').val();
+		this.model.set('result', result);
+		
+		this.model.save();
 		console.log(this.model.toJSON());
 	}
 
