@@ -11,8 +11,16 @@ module.exports = function(grunt){
 			}
 		},
 		browserify: {
-			dist: {
-				src: ['app/js/backbone/**/*.js'],
+			prod: {
+				src: ['app/assets/js/**/*.js'],
+				dest: 'dist/browser.js',
+				options: {
+					transform: ['debowerify', 'hbsfy'],
+					debug: false
+				}
+			},
+			dev: {
+				src: ['app/assets/js/**/*.js'],
 				dest: 'build/browser.js',
 				options: {
 					transform: ['debowerify', 'hbsfy'],
@@ -26,6 +34,12 @@ module.exports = function(grunt){
 				options: {
 					script: 'server.js',
 					node_env: 'development'
+				}
+			},
+			prod: {
+				options: {
+					script: 'server.js',
+					node_env: 'production'
 				}
 			}
 		},
@@ -49,16 +63,31 @@ module.exports = function(grunt){
 			}
 		},
 		clean: {
-			dist: {
+			build: ['build'],
+			dev: {
 				src: ['build/**/*']
 			},
+			prod: ['dist'],
 			postUglify: ['build/browser.js']
 		},
 		copy: {
-			dist: {
+			prod: {
 				expand: true,
-				cwd: 'app',
-				src: ['index.html', 'templates/**/*']
+				cwd: 'app/assets',
+				src: ['index.html', 'templates/**/*'],
+				dest: 'dist/',
+				flatten: false,
+				filter: 'isFile'
+			},
+			dev: {
+				expand: true,
+				cwd: 'app/assets',
+				src: ['index.html', 'templates/**/*'],
+				dest: 'build/',
+				flatten: false,
+				filter: 'isFile'
+			}
+		}
 	});
 
 	//Load Grunt Tasks
@@ -74,6 +103,7 @@ module.exports = function(grunt){
 	//Register Grunt Tasks
 
 	grunt.registerTask('default', ['express:dev', 'watch:express']);
-	grunt.registerTask('build:dist', ['clean:dist', 'copy:dist', 'browserify:dist', 'uglify']);
+	grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev', 'uglify']);
+	grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'copy:prod', 'jshint:all']);
 	grunt.registerTask('test', ['jshint']);
 };
