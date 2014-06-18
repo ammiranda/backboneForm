@@ -2,7 +2,7 @@
 
 var Backbone = require('backbone');
 var $ = require('jquery');
-var template = require('../templates/FormView.hbs');
+var template = require('../../templates/FormView.hbs');
 
 module.exports = Backbone.View.extend({
 

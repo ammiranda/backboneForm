@@ -2,9 +2,8 @@
 
 var Backbone = require('backbone');
 var $ = require('jquery');
-var _ = require('lodash');
-var InventoryItem = require('./models/InventoryItem');
-var InventoryFormView = require('./views/InventoryFormView');
+var InventoryItem = require('../models/InventoryItem');
+var InventoryFormView = require('../views/InventoryFormView');
 
 module.exports = Backbone.Router.extend({
 	
@@ -16,7 +15,7 @@ module.exports = Backbone.Router.extend({
 		this.inventoryItem = new InventoryItem();
 		this.inventoryFormView = new InventoryFormView({model: this.inventoryItem});
 		var that = this;
-		this.inventoryItem.fetch({});
+		this.inventoryItem.fetch();
 		$('.formcontainer').html(this.inventoryFormView.el);
 	}
 
