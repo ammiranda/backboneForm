@@ -12,6 +12,10 @@ app.get('/enums.json', function(req, res){
 	res.sendfile('./enums.json');
 });
 
+app.post('/', function(req, res){
+	console.log(res.toJSON());	
+});
+
 app.listen(port, function(){
 	console.log("Listening on port " + port);
 });
