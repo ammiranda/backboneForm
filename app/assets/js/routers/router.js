@@ -3,7 +3,9 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
 var InventoryItem = require('../models/InventoryItem');
+var FormEnums = require('../models/FormEnums');
 var InventoryFormView = require('../views/InventoryFormView');
+var EnumsView = require('../views/EnumsView');
 
 module.exports = Backbone.Router.extend({
 	
