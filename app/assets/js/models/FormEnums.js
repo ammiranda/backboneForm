@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	
-	urlRoot: 'http://localhost:3000/enums.json',
+	url: '/enums.json',
 	defaults: {
 		'itemEnums': {
 			'material': [],
