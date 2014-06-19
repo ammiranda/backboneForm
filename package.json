@@ -1,14 +1,14 @@
 {
-  "name": "1stdibsChallenge",
+  "name": "backboneForm",
   "version": "0.0.0",
-  "description": "1st Dibs coding challenge",
+  "description": "Backbone Form",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:amiranda222/1stdibschallenge.git"
+    "url": "git@github.com:amiranda222/backboneForm.git"
   },
   "author": "Alex Miranda",
   "license": "ISC",

@@ -1,11 +1,11 @@
 {
-  "name": "1stdibsChallenge",
+  "name": "backboneForm",
   "version": "0.0.0",
-  "homepage": "https://github.com/FireAlarm/OurBackend",
+  "homepage": "https://github.com/amiranda222/backboneForm",
   "authors": [
     "Alexander <alexandermichaelmiranda@gmail.com>"
   ],
-  "description": "Chanllenge for 1st Dibs",
+  "description": "Backbone form",
   "keywords": [
     "challenge",
     "backbone",
