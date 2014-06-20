@@ -51,6 +51,7 @@ module.exports = Backbone.View.extend({
 		}
 
 		result.item.material.description = form.find('#material option:selected').val();
+		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked', form).val();
 		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
 
 		this.model.set('result', result);

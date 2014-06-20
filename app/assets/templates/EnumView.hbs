@@ -1,4 +1,9 @@
 <div class="form-group">
+	{{#if result.item}}
+		<h2>Item model here</h2>
+	{{else}}
+		<h2>Item model not here</h2>
+	{{/if}}
 	<div class="form-group">
 		<label for="materials">Materials</label>
 		<select class="form-control" id="material">
@@ -13,18 +18,28 @@
 				<strong>Check this box</strong> if the listing contains or may contain restricted materials
 		</label>
 	</div>
+	<label for="measurements">Measurements</label>
 	<div class="form-group">
-		<label for="measurements">Measurements</label>
-		<label class="checkbox-inline">
 		Measurements are in:  
-			<input type="radio"></input>
-		</label>
-		<label class="checkbox-inline">
-			Measured item is:
-		</label>
+			{{#each itemEnums.measurement.unit}}
+			 	<label class="radio-inline">
+					<input type="radio" name="unitmeasure" value="{{.}}">{{.}} ({{@key}})
+				</label>
+			{{/each}}
+	</div>
+	<div class="form-group">
+		Measured item is:
+			{{#each itemsEnums.measurement.shape}}
+				<label class="radio-inline">
+					<input type="radio" name="shape" value="{{.}}">{{.}}
+				</label>
+			{{/each}}
+	</div>
 		<div class="input-group">
 			<input type="text" class="form-control">
 			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
+			<input type="text" class="form-control">
+			<span class="input-group-addon">
 		</div>
 	</div>
 	<div class="form-group">
