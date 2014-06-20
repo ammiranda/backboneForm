@@ -10,7 +10,7 @@ module.exports = Backbone.View.extend({
 
 	tagname: 'div',
 	className: 'inventoryForm',
-	el: '.col-md-4',
+	el: '.col-lg-4',
 
 	events: {
 		'click #inventorySubmit': 'saveItem'
@@ -20,6 +20,7 @@ module.exports = Backbone.View.extend({
 		this.formEnums = new FormEnums();
 		this.render();
 		this.model.on('change', this.render, this);
+		this.formEnums.fetch();
 	},
 	
 	render: function() {
@@ -50,6 +51,7 @@ module.exports = Backbone.View.extend({
 		}
 
 		result.item.material.description = form.find('#material option:selected').val();
+		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
 
 		this.model.set('result', result);
 		

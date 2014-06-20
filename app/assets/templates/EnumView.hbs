@@ -13,18 +13,26 @@
 				<strong>Check this box</strong> if the listing contains or may contain restricted materials
 		</label>
 	</div>
+	<div class="form-group">
 		<label for="measurements">Measurements</label>
 		<label class="checkbox-inline">
-			Measurements are in: 
+		Measurements are in:  
+			<input type="radio"></input>
 		</label>
 		<label class="checkbox-inline">
 			Measured item is:
 		</label>
-
-		<!-- Write the measurements input fields -->
-	
+		<div class="input-group">
+			<input type="text" class="form-control">
+			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
+		</div>
 	</div>
 	<div class="form-group">
 		<label for="condition">Condition (Select one)</label>
+			{{#each itemEnums.condition.description}}
+				<label class="radio-inline">
+					<input type="radio" class="conditionRadio" name="condition" value="{{.}}">{{.}}
+				</label>
+			{{/each}}
 	</div>
 </div>

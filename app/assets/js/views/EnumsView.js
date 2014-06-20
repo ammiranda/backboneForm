@@ -11,11 +11,8 @@ module.exports = Backbone.View.extend({
 	el: '.enumContainer',
 
 	initialize: function() {
-		var that = this;
-		this.model.fetch({
-			success: that.render(),
-			error: console.log
-		});
+		this.render();
+		this.model.on('change', this.render, this);
 	},
 
 	render: function() {
