@@ -36,10 +36,24 @@
 			{{/each}}
 	</div>
 		<div class="input-group">
+			<label for="length">Length:</label>
 			<input type="text" class="form-control">
 			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
+		</div>
+		<div class="input-group">
+			<label for="height">Height:</label>
 			<input type="text" class="form-control">
-			<span class="input-group-addon">
+			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
+		</div>
+		<div class="input-group">
+			<label for="depth">Depth:</label>
+			<input type="text" class="form-control">
+			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
+		</div>
+		<div class="input-group">
+			<label for="depth">Diameter:</label>
+			<input type="text" class="form-control">
+			<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}
 		</div>
 	</div>
 	<div class="form-group">
