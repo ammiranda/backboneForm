@@ -17,7 +17,6 @@ module.exports = Backbone.View.extend({
 
 	render: function() {
 		var enumsAttrs = this.model.toJSON();
-		console.log(template);
 		this.$el.html(template(enumsAttrs));
 		return this;
 	}

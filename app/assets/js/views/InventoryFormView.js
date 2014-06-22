@@ -26,6 +26,7 @@ module.exports = Backbone.View.extend({
 	
 	render: function() {
 		this.enumsView = new EnumsView({model: this.formEnums});
+		this.enumsView.model = this.model;
 		var inventoryAttrs = this.model.toJSON();
 		this.$el.html(template(inventoryAttrs));
 		this.$('.enumContainer').append(this.enumsView.el);
@@ -52,6 +53,16 @@ module.exports = Backbone.View.extend({
 		}
 
 		result.item.material.description = form.find('#material option:selected').val();
+
+		if (form.find('input[name=restrictedCheck]').prop('checked')) 
+		{
+			result.item.material.restricted = "Y";
+		}
+		else 
+		{
+			result.item.material.restricted = "N";
+		}
+
 		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked', form).val();
 		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
 		result.item.measurement.shape = form.find('input[name=shape]:checked', form).val();

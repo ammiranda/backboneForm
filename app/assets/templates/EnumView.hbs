@@ -9,7 +9,7 @@
 	</div>
 	<div class="checkbox">
 		<label>
-			<input type="checkbox" value="">
+			<input type="checkbox" name="restrictedCheck" value="">
 				<strong>Check this box</strong> if the listing contains or may contain restricted materials
 		</label>
 	</div>
@@ -31,7 +31,7 @@
 			{{/each}}
 	</div>
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-2 col-lg-2">
 				<label for="length">Length:</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="length" disabled>
@@ -43,7 +43,7 @@
 					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
 				</div>
 			</div>
-			<div class="col-md-2">
+			<div class="col-md-2 col-lg-2">
 				<label for="depth">Depth:</label>
 				<div class="input-group">
 					<input type="text" class="form-control" id="depth" disabled>
