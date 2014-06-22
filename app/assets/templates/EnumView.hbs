@@ -1,9 +1,4 @@
 <div class="form-group">
-	{{#if itemEnums.measurement.shape}}
-		<h2>Item model here</h2>
-	{{else}}
-		<h2>Item model not here</h2>
-	{{/if}}
 	<div class="form-group">
 		<label for="materials">Materials</label>
 		<select class="form-control" id="material">
@@ -31,7 +26,7 @@
 		Measured item is:
 			{{#each itemEnums.measurement.shape}}
 				<label class="radio-inline">
-					<input type="radio" name="shape" value="{{.}}">{{.}}
+					<input type="radio" name="shape" id="shapeSelection" value="{{.}}">{{.}}
 				</label>
 			{{/each}}
 	</div>
@@ -39,24 +34,24 @@
 			<div class="col-md-2">
 				<label for="length">Length:</label>
 				<div class="input-group">
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="length" disabled>
 					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
 				</div>
 				<label for="height">Height:</label>
 				<div class="input-group">
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="height" disabled>
 					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<label for="depth">Depth:</label>
 				<div class="input-group">
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="depth" disabled>
 					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
 				</div>
 				<label for="diameter">Diameter:</label>
 				<div class="input-group">
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="diameter" disabled>
 					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
 				</div>
 			</div>

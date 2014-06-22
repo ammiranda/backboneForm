@@ -74,7 +74,7 @@ module.exports = function(grunt){
 			prod: {
 				expand: true,
 				cwd: 'app/assets',
-				src: ['index.html', 'templates/**/*'],
+				src: ['index.html', 'templates/**/*', 'css/**/*'],
 				dest: 'dist/',
 				flatten: false,
 				filter: 'isFile'
@@ -82,7 +82,7 @@ module.exports = function(grunt){
 			dev: {
 				expand: true,
 				cwd: 'app/assets',
-				src: ['index.html', 'templates/**/*'],
+				src: ['index.html', 'templates/**/*', 'css/**/*'],
 				dest: 'build/',
 				flatten: false,
 				filter: 'isFile'

@@ -13,7 +13,8 @@ module.exports = Backbone.View.extend({
 	el: '.col-lg-4',
 
 	events: {
-		'click #inventorySubmit': 'saveItem'
+		'click #inventorySubmit': 'saveItem',
+		'click #shapeSelection': 'undisable'
 	},
 
 	initialize: function() {
@@ -53,11 +54,20 @@ module.exports = Backbone.View.extend({
 		result.item.material.description = form.find('#material option:selected').val();
 		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked', form).val();
 		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
+		result.item.measurement.shape = form.find('input[name=shape]:checked', form).val();
+		result.item.measurement.length = form.find('#length').val();
+		result.item.measurement.height = form.find('#height').val();
+		result.item.measurement.depth = form.find('#depth').val();
+		result.item.measurement.diameter = form.find('#diameter').val();
 
 		this.model.set('result', result);
 		
 		this.model.save();
 		console.log(this.model.toJSON());
+	},
+
+	undisable: function() {
+		this.$('input.form-control').removeAttr('disabled');
 	}
 
 });
