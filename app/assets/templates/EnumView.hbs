@@ -22,7 +22,7 @@
 	<div class="form-group">
 		Measurements are in:  
 			{{#each itemEnums.measurement.unit}}
-			 	<label class="radio-inline">
+			 	<label class="radio-inline" id="measureUnits">
 					<input type="radio" name="unitmeasure" value="{{.}}">{{.}}
 				</label>
 			{{/each}}
