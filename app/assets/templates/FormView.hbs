@@ -1,16 +1,91 @@
 <form role="form" method="post" action="/item.json">
-	<div class="form-group">
-		<label for="itemTitle">Title</label>
-		<input class="form-control" id="title" value="{{result.item.title}}">
+	{{#with itemEnums.itemEnums}}
+		<div class="form-group">
+			<label for="itemTitle">Title</label>
+			<input class="form-control" id="title" value="{{result.item.title}}">
+		</div>
+		<div class="form-group">
+			<label for="itemDescription">Description</label>
+			<textarea class="form-control" id="description" rows="10">{{result.item.description}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="internalNotes">Internal Notes</label>
+			<textarea class="form-control" id="internalNotes" rows="3">{{result.item.dealerInternalNotes}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="materials">Materials</label>
+			<select class="form-control" id="material">
+				{{#each material}}
+					<option value="{{.}}">{{.}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" name="restrictedCheck" value="">
+					<strong>Check this box</strong> if the listing contains or may contain restricted materials
+			</label>
+		</div>
+		<label for="measurements">Measurements</label>
+		<div class="form-group">
+			Measurements are in:  
+				{{#each measurement.unit}}
+				 	<label class="radio-inline" id="measureUnits">
+						<input type="radio" name="unitmeasure" value="{{this}}">{{this}} <span>({{@key}})</span>
+					</label>
+				{{/each}}
+		</div>
+		<div class="form-group">
+			Measured item is:
+				{{#each measurement.shape}}
+					<label class="radio-inline">
+						<input type="radio" name="shape" id="shapeSelection" value="{{.}}"
+						{{#if result.item.measurement.shape}}
+							{{bindAttr checked="true"}}
+						{{/if}}
+						>{{.}}
+					</label>
+				{{/each}}
+		</div>
+			<div class="row">
+				{{#each measurement.unit}}
+					<div class="col-md-2 col-lg-2">
+						<label for="length" class="disabled">Length:</label>
+						<div class="input-group dimensions {{this}}">
+							<input type="text" class="form-control dimensions" id="length" disabled>
+							<span class="input-group-addon">{{@key}}.</span>
+						</div>
+						<label for="height" class="disabled">Height:</label>
+						<div class="input-group dimensions {{this}}">
+							<input type="text" class="form-control dimensions" id="height" disabled>
+							<span class="input-group-addon">{{@key}}.</span>
+						</div>
+					</div>
+					<div class="col-md-2 col-lg-2">
+						<label for="depth" class="disabled">Depth:</label>
+						<div class="input-group dimensions {{this}}">
+							<input type="text" class="form-control dimensions" id="depth" disabled>
+							<span class="input-group-addon">{{@key}}.</span>
+						</div>
+						<label for="diameter" class="disabled">Diameter:</label>
+						<div class="input-group dimensions {{this}}">
+							<input type="text" class="form-control dimensions" id="diameter" disabled>
+							<span class="input-group-addon">{{@key}}.</span>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		<div class="form-group">
+			<label for="condition">Condition (Select one)</label>
+				<div class="form-group">
+					{{#each condition.description}}
+						<label class="radio-inline">
+							<input type="radio" class="conditionRadio" name="condition" value="{{.}}">{{.}}
+						</label>
+					{{/each}}
+				</div>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="itemDescription">Description</label>
-		<textarea class="form-control" id="description" rows="10">{{result.item.description}}</textarea>
-	</div>
-	<div class="form-group">
-		<label for="internalNotes">Internal Notes</label>
-		<textarea class="form-control" id="internalNotes" rows="3">{{result.item.dealerInternalNotes}}</textarea>
-	</div>
-	<div class="enumContainer"></div>
 	<button type="submit" id="inventorySubmit" class="btn btn-primary">Save</button>
+	{{/with}}
 </form>

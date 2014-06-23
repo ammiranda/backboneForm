@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 var template = require('../../templates/FormView.hbs');
 var EnumsView = require('./EnumsView');
-var FormEnums = require('../models/FormEnums');
+var Enums = require('../../../../enums.json');
 
 module.exports = Backbone.View.extend({
 
@@ -18,18 +18,15 @@ module.exports = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.formEnums = new FormEnums();
 		this.render();
 		this.model.on('change', this.render, this);
-		this.formEnums.fetch();
 	},
 	
 	render: function() {
-		this.enumsView = new EnumsView({model: this.formEnums});
-		this.enumsView.model = this.model;
 		var inventoryAttrs = this.model.toJSON();
+		inventoryAttrs.itemEnums = Enums;
+		console.log(inventoryAttrs);
 		this.$el.html(template(inventoryAttrs));
-		this.$('.enumContainer').append(this.enumsView.el);
 		return this;
 	},	
 
