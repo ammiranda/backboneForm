@@ -116,14 +116,15 @@ module.exports = Backbone.View.extend({
 		form.find('#depth').val(result.item.measurement.depth);
 		form.find('#diameter').val(result.item.measurement.diameter);
 
-		form.find('.cm').hide();
-
 		form.find('input[name="condition"][value="' + result.item.condition.description + '"]').prop('checked', true);
 	},
 
 	swapUnitFields: function() {
-		var form = $(this.el).find('form');
-		console.log("change event works!");
+		var result = this.model.get('result');
+		form.find('.input-group-addon').text('');
+		var value = form.find('input[value="unitmeasure"]:checked').val();
+		result.set(item.measurement.unit, value);
+		form.find('.input-group-addon').text(result.item.measurement.unit);
 	}
 
 });

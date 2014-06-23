@@ -3,8 +3,21 @@
 	margin-bottom: 25px;
 }
 
+#material {
+	width: 35%;
+}
+
+.dimensions {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 .topSpace {
 	margin-top: 25px;
+}
+
+.checkbox {
+	margin-top: 30px;
 }
 
 #measureUnits {

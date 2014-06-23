@@ -1,11 +1,10 @@
 <div class="form-group">
 	<div class="form-group">
 		<label for="materials">Materials</label>
-		<select class="form-control input-xxlarge" id="material" name="material">
+		<select class="form-control" id="material" class="input-block-level" name="material">
 			{{#each itemEnums.material}}
 				<option value='{{.}}'>{{.}}</option>
 			{{/each}}
-		</select>
 	</div>
 	<div class="checkbox">
 		<label>
@@ -17,8 +16,8 @@
 	<div class="form-group">
 		Measurements are in:  
 			{{#each itemEnums.measurement.unit}}
-			 	<label class="radio-inline" id="measureUnits">
-					<input type="radio" name="unitmeasure" value="{{@key}}">{{this}} <span>({{@key}})</span>
+			 	<label class="radio-inline">
+					<input type="radio" id="measureUnits" name="unitmeasure" value="{{@key}}">{{this}} <span>({{@key}})</span>
 				</label>
 			{{/each}}
 	</div>
