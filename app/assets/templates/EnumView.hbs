@@ -18,7 +18,7 @@
 		Measurements are in:  
 			{{#each itemEnums.measurement.unit}}
 			 	<label class="radio-inline" id="measureUnits">
-					<input type="radio" name="unitmeasure" value="{{.}}">{{.}}
+					<input type="radio" name="unitmeasure" value="{{this}}">{{this}} <span>({{@key}})</span>
 				</label>
 			{{/each}}
 	</div>
@@ -31,30 +31,32 @@
 			{{/each}}
 	</div>
 		<div class="row">
-			<div class="col-md-2 col-lg-2">
-				<label for="length">Length:</label>
-				<div class="input-group">
-					<input type="text" class="form-control" id="length" disabled>
-					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
+			{{#each itemEnums.measurement.unit}}
+				<div class="col-md-2 col-lg-2">
+					<label for="length" class="disabled">Length:</label>
+					<div class="input-group dimensions {{this}}">
+						<input type="text" class="form-control dimensions" id="length" disabled>
+						<span class="input-group-addon">{{@key}}.</span>
+					</div>
+					<label for="height" class="disabled">Height:</label>
+					<div class="input-group dimensions {{this}}">
+						<input type="text" class="form-control dimensions" id="height" disabled>
+						<span class="input-group-addon">{{@key}}.</span>
+					</div>
 				</div>
-				<label for="height">Height:</label>
-				<div class="input-group">
-					<input type="text" class="form-control" id="height" disabled>
-					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
+				<div class="col-md-2 col-lg-2">
+					<label for="depth" class="disabled">Depth:</label>
+					<div class="input-group dimensions {{this}}">
+						<input type="text" class="form-control dimensions" id="depth" disabled>
+						<span class="input-group-addon">{{@key}}.</span>
+					</div>
+					<label for="diameter" class="disabled">Diameter:</label>
+					<div class="input-group dimensions {{this}}">
+						<input type="text" class="form-control dimensions" id="diameter" disabled>
+						<span class="input-group-addon">{{@key}}.</span>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-2 col-lg-2">
-				<label for="depth">Depth:</label>
-				<div class="input-group">
-					<input type="text" class="form-control" id="depth" disabled>
-					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
-				</div>
-				<label for="diameter">Diameter:</label>
-				<div class="input-group">
-					<input type="text" class="form-control" id="diameter" disabled>
-					<span class="input-group-addon">{{itemEnums.measurement.unit.in @key}}</span>
-				</div>
-			</div>
+			{{/each}}
 		</div>
 	<div class="form-group">
 		<label for="condition">Condition (Select one)</label>

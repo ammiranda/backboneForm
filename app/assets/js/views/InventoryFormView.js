@@ -65,7 +65,16 @@ module.exports = Backbone.View.extend({
 
 		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked', form).val();
 		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
-		result.item.measurement.shape = form.find('input[name=shape]:checked', form).val();
+
+		if (form.find('input[name=shape]:checked').length > 0) 
+		{
+			result.item.measurement.shape = form.find('input[name=shape]:checked', form).val();
+		}
+		else 
+		{
+			result.item.measurement.shape = "";
+		}
+
 		result.item.measurement.length = form.find('#length').val();
 		result.item.measurement.height = form.find('#height').val();
 		result.item.measurement.depth = form.find('#depth').val();
@@ -78,7 +87,8 @@ module.exports = Backbone.View.extend({
 	},
 
 	undisable: function() {
-		this.$('input.form-control').removeAttr('disabled');
+		this.$('.dimensions').removeAttr('disabled');
+		this.$('.disabled').removeClass('disabled');
 	}
 
 });
