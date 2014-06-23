@@ -7,6 +7,6 @@
 }
 
 label.disabled {
-color: gray;
-cursor: not-allowed;
+	color: gray;
+	cursor: not-allowed;
 }

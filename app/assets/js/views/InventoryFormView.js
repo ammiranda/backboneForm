@@ -14,7 +14,8 @@ module.exports = Backbone.View.extend({
 
 	events: {
 		'click #inventorySubmit': 'saveItem',
-		'click #shapeSelection': 'undisable'
+		'click #shapeSelection': 'undisable',
+		'click #measureUnits': 'displayUnitFields'
 	},
 
 	initialize: function() {
@@ -89,6 +90,19 @@ module.exports = Backbone.View.extend({
 	undisable: function() {
 		this.$('.dimensions').removeAttr('disabled');
 		this.$('.disabled').removeClass('disabled');
+	},
+
+	displayUnitFields: function() {
+		if (this.$('input[name=unitmeasure]:checked') === "inches")
+		{
+			this.$('.centimeters').hide();
+			this.$('.inches').show();
+		}
+		else 
+		{
+			this.$('.inches').hide();
+			this.$('.centimeters').show();
+		}
 	}
 
 });

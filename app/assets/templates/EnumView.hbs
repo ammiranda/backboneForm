@@ -32,26 +32,26 @@
 	</div>
 		<div class="row">
 			{{#each itemEnums.measurement.unit}}
-				<div class="col-md-2 col-lg-2">
+				<div class="col-md-2 col-lg-2 {{this}}">
 					<label for="length" class="disabled">Length:</label>
-					<div class="input-group dimensions {{this}}">
+					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="length" disabled>
 						<span class="input-group-addon">{{@key}}.</span>
 					</div>
 					<label for="height" class="disabled">Height:</label>
-					<div class="input-group dimensions {{this}}">
+					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="height" disabled>
 						<span class="input-group-addon">{{@key}}.</span>
 					</div>
 				</div>
-				<div class="col-md-2 col-lg-2">
+				<div class="col-md-2 col-lg-2 {{this}}">
 					<label for="depth" class="disabled">Depth:</label>
-					<div class="input-group dimensions {{this}}">
+					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="depth" disabled>
 						<span class="input-group-addon">{{@key}}.</span>
 					</div>
 					<label for="diameter" class="disabled">Diameter:</label>
-					<div class="input-group dimensions {{this}}">
+					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="diameter" disabled>
 						<span class="input-group-addon">{{@key}}.</span>
 					</div>
