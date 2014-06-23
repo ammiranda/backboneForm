@@ -1,9 +1,9 @@
 <div class="form-group">
 	<div class="form-group">
 		<label for="materials">Materials</label>
-		<select class="form-control" id="material">
+		<select class="form-control input-xxlarge" id="material" name="material">
 			{{#each itemEnums.material}}
-				<option>{{.}}</option>
+				<option value='{{.}}'>{{.}}</option>
 			{{/each}}
 		</select>
 	</div>

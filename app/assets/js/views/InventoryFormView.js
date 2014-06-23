@@ -27,12 +27,12 @@ module.exports = Backbone.View.extend({
 	
 	render: function() {
 		this.enumsView = new EnumsView({model: this.formEnums});
-		this.enumsView.model = this.model;
 		var inventoryAttrs = this.model.toJSON();
 		this.$el.html(template(inventoryAttrs));
 		this.$('.enumContainer').append(this.enumsView.el);
+		this.populateEnumFields();
 		return this;
-	},	
+	},
 
 	saveItem: function(event) {
 		event.preventDefault();
@@ -41,7 +41,7 @@ module.exports = Backbone.View.extend({
 
 		if (result.item === null || result.item === undefined)
 		{
-			result.item = {}
+			result.item = {};
 		}
 
 		result.item.title = form.find('#title').val();
@@ -50,18 +50,18 @@ module.exports = Backbone.View.extend({
 
 		if (result.item.material === null || result.item.material === undefined)
 		{
-			result.item.material = {}
+			result.item.material = {};
 		}
 
 		result.item.material.description = form.find('#material option:selected').val();
 
 		if (form.find('input[name=restrictedCheck]').prop('checked')) 
 		{
-			result.item.material.restricted = "Y";
+			result.item.material.restricted = 'Y';
 		}
 		else 
 		{
-			result.item.material.restricted = "N";
+			result.item.material.restricted = 'N';
 		}
 
 		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked').val();
@@ -73,7 +73,7 @@ module.exports = Backbone.View.extend({
 		}
 		else 
 		{
-			result.item.measurement.shape = "";
+			result.item.measurement.shape = '';
 		}
 
 		result.item.measurement.length = form.find('#length').val();
@@ -92,8 +92,34 @@ module.exports = Backbone.View.extend({
 		this.$('.disabled').removeClass('disabled');
 	},
 
+	populateEnumFields: function() {
+		var result = this.model.get('result');
+		var form = $(this.el).find('form');
+
+		form.find('select[name="material"]').find('option[value="' + result.item.material.description + '"]').attr('selected', true);
+
+		if (result.item.material.restricted === "Y")
+		{
+			form.find('input[name="restrictedCheck"]').attr('checked', true);
+		}
+
+		form.find('input[name="unitmeasure"][value="' + result.item.measurement.unit + '"]').prop('checked', true);
+
+		if (result.item.measurement.shape)
+		{
+			form.find('input[name="shape"][value="' + result.item.measurement.shape + '"]').prop('checked', true);
+		}
+
+		form.find('#length').val(result.item.measurement.length);
+		form.find('#height').val(result.item.measurement.height);
+		form.find('#depth').val(result.item.measurement.depth);
+		form.find('#diameter').val(result.item.measurement.diameter);
+
+		form.find('input[name="condition"][value="' + result.item.condition.description + '"]').prop('checked', true);
+	},
+
 	displayUnitFields: function() {
-		if (this.$('input[name=unitmeasure]:checked') === "inches")
+		if (this.$('input[name=unitmeasure]:checked') === 'inches')
 		{
 			this.$('.centimeters').addClass('invisible');
 			this.$('.inches').removeClass('invisible');
