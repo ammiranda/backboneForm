@@ -1,3 +1,12 @@
+#formContainer {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.topSpace {
+	margin-top: 25px;
+}
+
 #measureUnits {
 	text-transform: capitalize;
 }
@@ -6,7 +15,7 @@
 	text-transform: none;
 }
 
-label.disabled {
+.disabled {
 	color: gray;
 	cursor: not-allowed;
 }

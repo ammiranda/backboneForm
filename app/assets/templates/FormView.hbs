@@ -1,16 +1,18 @@
 <form role="form" method="post" action="/item.json">
-	<div class="form-group">
-		<label for="itemTitle">Title</label>
-		<input class="form-control" id="title" value="{{result.item.title}}">
-	</div>
-	<div class="form-group">
-		<label for="itemDescription">Description</label>
-		<textarea class="form-control" id="description" rows="10">{{result.item.description}}</textarea>
-	</div>
-	<div class="form-group">
-		<label for="internalNotes">Internal Notes</label>
-		<textarea class="form-control" id="internalNotes" rows="3">{{result.item.dealerInternalNotes}}</textarea>
-	</div>
+	{{#with result.item}}
+		<div class="form-group">
+			<label for="itemTitle">Title</label>
+			<input class="form-control" id="title" value="{{title}}">
+		</div>
+		<div class="form-group">
+			<label for="itemDescription">Description</label>
+			<textarea class="form-control" id="description" rows="10">{{description}}</textarea>
+		</div>
+		<div class="form-group">
+			<label for="internalNotes">Internal Notes</label>
+			<textarea class="form-control" id="internalNotes" rows="3">{{dealerInternalNotes}}</textarea>
+		</div>
+	{{/with}}
 	<div class="enumContainer"></div>
 	<button type="submit" id="inventorySubmit" class="btn btn-primary">Save</button>
 </form>

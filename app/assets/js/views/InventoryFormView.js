@@ -15,7 +15,7 @@ module.exports = Backbone.View.extend({
 	events: {
 		'click #inventorySubmit': 'saveItem',
 		'click #shapeSelection': 'undisable',
-		'click #measureUnits': 'displayUnitFields'
+		'change #measureUnits': 'swapUnitFields'
 	},
 
 	initialize: function() {
@@ -108,6 +108,7 @@ module.exports = Backbone.View.extend({
 		if (result.item.measurement.shape)
 		{
 			form.find('input[name="shape"][value="' + result.item.measurement.shape + '"]').prop('checked', true);
+			this.undisable();
 		}
 
 		form.find('#length').val(result.item.measurement.length);
@@ -115,20 +116,14 @@ module.exports = Backbone.View.extend({
 		form.find('#depth').val(result.item.measurement.depth);
 		form.find('#diameter').val(result.item.measurement.diameter);
 
+		form.find('.cm').hide();
+
 		form.find('input[name="condition"][value="' + result.item.condition.description + '"]').prop('checked', true);
 	},
 
-	displayUnitFields: function() {
-		if (this.$('input[name=unitmeasure]:checked') === 'inches')
-		{
-			this.$('.centimeters').addClass('invisible');
-			this.$('.inches').removeClass('invisible');
-		}
-		else 
-		{
-			this.$('.inches').toggle();
-			this.$('.centimeters').toggle();
-		}
+	swapUnitFields: function() {
+		var form = $(this.el).find('form');
+		console.log("change event works!");
 	}
 
 });
