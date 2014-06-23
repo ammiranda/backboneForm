@@ -1,5 +1,5 @@
 <div class="form-group">
-	<div class="form-group">
+	<div class="form-group materials">
 		<label for="materials">Materials</label>
 		<select class="form-control" id="material" class="input-block-level" name="material">
 			{{#each itemEnums.material}}
@@ -31,7 +31,7 @@
 	</div>
 		<div class="row">
 			{{#with itemEnums.measurement}}
-				<div class="col-md-2 col-lg-2 {{this}}">
+				<div class="col-lg-6 col-md-4">
 					<label for="length" class="disabled">Length:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="length" disabled>
@@ -47,7 +47,7 @@
 						{{/each}}
 					</div>
 				</div>
-				<div class="col-md-2 col-lg-2 {{this}}">
+				<div class="col-lg-6 col-md-4">
 					<label for="depth" class="disabled">Depth:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="depth" disabled>
