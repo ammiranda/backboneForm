@@ -5,7 +5,7 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		
 		jshint: {
-			all: ['Gruntfile.js', 'server.js', 'app/js/*.js'],
+			all: ['Gruntfile.js', 'server.js', 'app/assets/js/**/*.js'],
 			options: {
 				jshintrc: true
 			}

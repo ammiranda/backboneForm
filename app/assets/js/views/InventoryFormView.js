@@ -64,12 +64,12 @@ module.exports = Backbone.View.extend({
 			result.item.material.restricted = "N";
 		}
 
-		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked', form).val();
-		result.item.condition.description = form.find('input[name=condition]:checked', form).val();
+		result.item.measurement.unit = form.find('input[name=unitmeasure]:checked').val();
+		result.item.condition.description = form.find('input[name=condition]:checked').val();
 
 		if (form.find('input[name=shape]:checked').length > 0) 
 		{
-			result.item.measurement.shape = form.find('input[name=shape]:checked', form).val();
+			result.item.measurement.shape = form.find('input[name=shape]:checked').val();
 		}
 		else 
 		{

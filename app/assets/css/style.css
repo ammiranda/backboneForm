@@ -17,4 +17,5 @@ label.disabled {
 
 .unbold {
 	font-weight: normal;
+	font-style: italic;
 }
