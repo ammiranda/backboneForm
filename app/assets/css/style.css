@@ -39,7 +39,7 @@
 }
 
 .invisible {
-	visibility: hidden;
+	display: none;
 }
 
 .unbold {

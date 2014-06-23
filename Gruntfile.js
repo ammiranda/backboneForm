@@ -11,14 +11,6 @@ module.exports = function(grunt){
 			}
 		},
 		browserify: {
-			prod: {
-				src: ['app/assets/js/**/*.js'],
-				dest: 'dist/browser.js',
-				options: {
-					transform: ['debowerify', 'hbsfy'],
-					debug: false
-				}
-			},
 			dev: {
 				src: ['app/assets/js/**/*.js'],
 				dest: 'build/browser.js',
@@ -34,12 +26,6 @@ module.exports = function(grunt){
 				options: {
 					script: 'server.js',
 					node_env: 'development'
-				}
-			},
-			prod: {
-				options: {
-					script: 'server.js',
-					node_env: 'production'
 				}
 			}
 		},
@@ -58,7 +44,7 @@ module.exports = function(grunt){
 		uglify: {
 			js: {
 				files: {
-					'dist/browser.js': 'dist/browser.js'
+					'build/browser.js': 'build/browser.js'
 				}
 			}
 		},
@@ -67,18 +53,9 @@ module.exports = function(grunt){
 			dev: {
 				src: ['build/**/*']
 			},
-			prod: ['dist'],
 			postUglify: ['build/browser.js']
 		},
 		copy: {
-			prod: {
-				expand: true,
-				cwd: 'app/assets',
-				src: ['index.html', 'templates/**/*', 'css/**/*'],
-				dest: 'dist/',
-				flatten: false,
-				filter: 'isFile'
-			},
 			dev: {
 				expand: true,
 				cwd: 'app/assets',
@@ -104,6 +81,6 @@ module.exports = function(grunt){
 
 	grunt.registerTask('default', ['express:dev', 'watch:express']);
 	grunt.registerTask('build:dev', ['clean:dev', 'copy:dev', 'browserify:dev']);
-	grunt.registerTask('build:prod', ['clean:prod', 'browserify:prod', 'copy:prod', 'jshint:all', 'uglify']);
+	grunt.registerTask('build:prod', ['clean:dev', 'jshint:all', 'browserify:dev', 'copy:dev', 'uglify']);
 	grunt.registerTask('test', ['jshint']);
 };

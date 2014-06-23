@@ -14,8 +14,8 @@ module.exports = Backbone.View.extend({
 
 	events: {
 		'click #inventorySubmit': 'saveItem',
-		'click #shapeSelection': 'undisable',
-		'change #measureUnits': 'swapUnitFields'
+		'click #shapeSelection': 'undisableInputFields',
+		'click #measureUnits': 'clickUnit'
 	},
 
 	initialize: function() {
@@ -87,7 +87,7 @@ module.exports = Backbone.View.extend({
 		console.log(this.model.toJSON());
 	},
 
-	undisable: function() {
+	undisableInputFields: function() {
 		this.$('.dimensions').removeAttr('disabled');
 		this.$('.disabled').removeClass('disabled');
 	},
@@ -98,7 +98,7 @@ module.exports = Backbone.View.extend({
 
 		form.find('select[name="material"]').find('option[value="' + result.item.material.description + '"]').attr('selected', true);
 
-		if (result.item.material.restricted === "Y")
+		if (result.item.material.restricted === 'Y')
 		{
 			form.find('input[name="restrictedCheck"]').attr('checked', true);
 		}
@@ -115,16 +115,21 @@ module.exports = Backbone.View.extend({
 		form.find('#height').val(result.item.measurement.height);
 		form.find('#depth').val(result.item.measurement.depth);
 		form.find('#diameter').val(result.item.measurement.diameter);
+		form.find('.cm').addClass('invisible');
 
 		form.find('input[name="condition"][value="' + result.item.condition.description + '"]').prop('checked', true);
 	},
 
-	swapUnitFields: function() {
-		var result = this.model.get('result');
-		form.find('.input-group-addon').text('');
-		var value = form.find('input[value="unitmeasure"]:checked').val();
-		result.set(item.measurement.unit, value);
-		form.find('.input-group-addon').text(result.item.measurement.unit);
+	clickUnit: function(e) {
+		this.activateUnit($(e.target));
+	},
+
+	activateUnit: function($unit) {
+		var form = $(this.el).find('form');
+		var value = $unit.val();
+
+		form.find('span.input-group-addon').addClass('invisible');
+		form.find('.' + value).removeClass('invisible');		
 	}
 
 });

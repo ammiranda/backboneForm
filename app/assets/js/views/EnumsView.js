@@ -1,7 +1,6 @@
 'use strict';
 
 var Backbone = require('backbone');
-var $ = require('jquery');
 var template = require('../../templates/EnumView.hbs');
 
 module.exports = Backbone.View.extend({
