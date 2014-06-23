@@ -9,10 +9,7 @@ module.exports = Backbone.Model.extend({
 		'itemEnums': {
 			'material': [],
 			'measurement': {
-				'unit': {
-					'in': 'inches',
-					'cm': 'centimeters'
-				},
+				'unit': {},
 				'shape': []
 			},
 			'condition': {

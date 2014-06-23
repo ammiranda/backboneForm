@@ -31,35 +31,43 @@
 			{{/each}}
 	</div>
 		<div class="row">
-			{{#each itemEnums.measurement.unit}}
+			{{#with itemEnums.measurement}}
 				<div class="col-md-2 col-lg-2 {{this}}">
 					<label for="length" class="disabled">Length:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="length" disabled>
-						<span class="input-group-addon">{{@key}}.</span>
+						{{#each unit}}
+							<span class="input-group-addon">{{@key}}.</span>
+						{{/each}}
 					</div>
 					<label for="height" class="disabled">Height:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="height" disabled>
-						<span class="input-group-addon">{{@key}}.</span>
+						{{#each unit}}
+							<span class="input-group-addon">{{@key}}.</span>
+						{{/each}}
 					</div>
 				</div>
 				<div class="col-md-2 col-lg-2 {{this}}">
 					<label for="depth" class="disabled">Depth:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="depth" disabled>
-						<span class="input-group-addon">{{@key}}.</span>
+						{{#each unit}}
+							<span class="input-group-addon">{{@key}}.</span>
+						{{/each}}
 					</div>
 					<label for="diameter" class="disabled">Diameter:</label>
 					<div class="input-group dimensions">
 						<input type="text" class="form-control dimensions" id="diameter" disabled>
-						<span class="input-group-addon">{{@key}}.</span>
+						{{#each unit}}
+							<span class="input-group-addon">{{@key}}.</span>
+						{{/each}}
 					</div>
 				</div>
-			{{/each}}
+			{{/with}}
 		</div>
 	<div class="form-group">
-		<label for="condition">Condition (Select one)</label>
+		<label for="condition">Condition <span class="unbold">(Select one)</span></label>
 			<div class="form-group">
 				{{#each itemEnums.condition.description}}
 					<label class="radio-inline">

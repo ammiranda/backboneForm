@@ -95,13 +95,13 @@ module.exports = Backbone.View.extend({
 	displayUnitFields: function() {
 		if (this.$('input[name=unitmeasure]:checked') === "inches")
 		{
-			this.$('.centimeters').hide();
-			this.$('.inches').show();
+			this.$('.centimeters').addClass('invisible');
+			this.$('.inches').removeClass('invisible');
 		}
 		else 
 		{
-			this.$('.inches').hide();
-			this.$('.centimeters').show();
+			this.$('.inches').toggle();
+			this.$('.centimeters').toggle();
 		}
 	}
 

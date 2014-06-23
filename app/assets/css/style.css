@@ -10,3 +10,11 @@ label.disabled {
 	color: gray;
 	cursor: not-allowed;
 }
+
+.invisible {
+	visibility: hidden;
+}
+
+.unbold {
+	font-weight: normal;
+}
