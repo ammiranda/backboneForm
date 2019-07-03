@@ -13,7 +13,9 @@
   "author": "Alex Miranda",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.4.3"
+    "express": "^4.4.3",
+    "lodash": "^4.17.11",
+    "tar-fs": "^2.0.0"
   },
   "devDependencies": {
     "body-parser": "~1.19.0",
